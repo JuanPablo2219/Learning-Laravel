@@ -15,3 +15,17 @@ Los controladores son quienes se van a encargar de relacionar el codigo html y e
 - El metodo create lo creamos para mostrar un formulario y poder crear un curso etc.
 
 - El metodo show lo creamos para mostrar un elemento en particular.
+
+* Grupos de rutas por controlador
+Esto sirve para no repetir codigo por ejemplo:
+ - Route::get('cursos', [CursoController::class, 'index']);
+ - Route::get('cursos/create', [CursoController::class, 'create']);
+ - Route::get('cursos/{curso}', [CursoController::class, 'show']);
+Podemos crear un solo grupo de rutas para el ejmplo indicado :
+Route::controller(CursoController::class)->group(function () {
+    Route::get('cursos', 'index');
+    Route::get('cursos/create', 'create');
+    Route::get('cursos/{curso}', 'show');
+});
+
+
