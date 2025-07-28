@@ -8,16 +8,16 @@ class CursoController extends Controller
 {
     public function index()
     {
-        return "Bienvenidos a la Pagina Cursos";
+        return view('Cursos/index');
     }
 
     public function create()
     {
-        return "En este apartado podras crear un curso";
+        return view('Cursos/create');
     }
 
     public function show($curso)
     {
-        return "Bienvenidos al curso de: $curso";
+        return view('Cursos/show', compact('curso'));
     }
-}
+}   
