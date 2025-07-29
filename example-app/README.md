@@ -50,4 +50,16 @@ No utilizar este comando cuando nuestro proyecto este en producción por el meto
  - php artisan migrate:refresh
 No recomendadp.
 
-- ¿ Como modificar una tabla para crear una nueva columna a una tabla que ya existe ?
+* ¿ Que son los seeder ?
+Los seeders nos permiten definir datos de prueba en código y ejecutarlos de manera automatizada, lo que facilita el proceso de llenado de datos en la base de datos.
+El comando para crear un seeder es :
+ - php artisan make:seeder CursoSeeder
+El comando para ejecutar el seeder es:
+ - php artisan db:seed
+
+ * ¿ Que son los factories ?
+Las factories nos permite definir patrones para generar datos aleatorios y luego utilizarlos para llenar nuestra BBDD con datos de prueba de manera automatizada. 
+El comando para crear un factories es :
+ - php artisan make:factory CursoFactory
+El comando para ejecutar el factories es:
+ - php artisan db:factory
