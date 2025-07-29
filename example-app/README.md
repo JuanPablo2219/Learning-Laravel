@@ -28,4 +28,26 @@ Route::controller(CursoController::class)->group(function () {
     Route::get('cursos/{curso}', 'show');
 });
 
+* Introduccion a las Migraciones 
+Son como el control de versiones de nuestra BBDD. Lo que permite al equipo modificar y compartir el esquema de la BBDD de la aplicación.
+- El comando para realizar una migración es:
+ - php artisan migrate
+Este comando recorrera uno a uno las migraciones que hemos creado en orden.
 
+- El comando para crear una migracion es:
+ - php artisan make:migration create_cursos
+
+- Para revertir los ultimos cambios que hemos realizado el comando es:
+ - php artisan migrate: rollback 
+
+- Lotes al migrar , al hacer un roolback retrocedemos un lote.
+
+- Para borrar todos los datos de las tablas y volver a crear las migrationes el comando es:
+ - php artisan migrate:fresh
+No utilizar este comando cuando nuestro proyecto este en producción por el metodo es destructivo.
+
+- Para ejecutar el metodo down de la migracion y seguido ejecutar la migracion utilizamos el comando:
+ - php artisan migrate:refresh
+No recomendadp.
+
+- ¿ Como modificar una tabla para crear una nueva columna a una tabla que ya existe ?
