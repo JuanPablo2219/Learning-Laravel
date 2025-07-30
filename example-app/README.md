@@ -63,3 +63,26 @@ El comando para crear un factories es :
  - php artisan make:factory CursoFactory
 El comando para ejecutar el factories es:
  - php artisan db:factory
+
+* ¿ Que son los mutadores ?
+Los mutadores te permiten modificar los valores de los atributos antes de guardarlos en la base de datos.
+ - Ejemplo:
+    - protected function name(): Attribute {
+    return new Attribute(
+        set: function($value) {
+            return strtolower($value);
+        }
+    );
+   }
+
+* ¿ Que son los accesores ?
+Los accesores te permiten acceder a los valores de los atributos de manera formateada.
+ - Ejemplo:
+    -  protected function name(): Attribute {
+    return new Attribute(
+
+        get: function($value) {
+            return ucwords($value);
+        }
+    );
+   }
