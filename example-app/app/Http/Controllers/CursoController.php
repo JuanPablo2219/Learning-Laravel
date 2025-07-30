@@ -21,14 +21,9 @@ class CursoController extends Controller
 
     public function store(CursoStore $request)
     {
-        $curso = new Curso();
-        $curso->name = $request->name;
-        $curso->description = $request->descripcion;
-        $curso->categoria = $request->categoria;
+        $curso = Curso::create($request->all());
 
-        $curso->save();
-
-        return redirect(route('cursos.show', $curso->id));
+        return redirect(route('cursos.show', $curso));
     }
 
     public function show(Curso $curso)
@@ -51,12 +46,8 @@ class CursoController extends Controller
             'categoria' => 'required',
         ]);
 
-        $curso->name = $request->name;
-        $curso->description = $request->descripcion;
-        $curso->categoria = $request->categoria;
+        $curso->update($request->all());
 
-        $curso->save();
-
-        return redirect(route('cursos.show', $curso->id));
+        return redirect(route('cursos.show', $curso));
     }
 }

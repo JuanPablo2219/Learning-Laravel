@@ -23,7 +23,7 @@ class CursoStore extends FormRequest
     {
         return [
             'name' => 'required',
-            'description' => 'required',
+            'descripcion' => 'required',
             'categoria' => 'required'
         ];
     }
