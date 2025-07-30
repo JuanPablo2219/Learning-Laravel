@@ -4,6 +4,9 @@
 
 @section('content')
     <h1>En esta pagina podras crear un curso</h1>
+    <a href={{route('cursos.index')}}>Regrear a Cursos</a>
+    <br>
+    <br>
 
     <form action={{route('cursos.store')}} method="POST">
 

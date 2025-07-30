@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CursoStore;
 use App\Models\Curso;
 use Illuminate\Http\Request;
 
@@ -18,15 +19,8 @@ class CursoController extends Controller
         return view('Cursos/create');
     }
 
-    public function store(Request $request)
+    public function store(CursoStore $request)
     {
-
-        $request->validate([
-            'name' => 'required',
-            'descripcion' => 'required',
-            'categoria' => 'required'
-        ]);
-
         $curso = new Curso();
         $curso->name = $request->name;
         $curso->description = $request->descripcion;
@@ -44,17 +38,25 @@ class CursoController extends Controller
 
     public function edit(Curso $curso)
     {
+
         return view('Cursos/edit', compact('curso'));
     }
 
-    public function update( Request $request, Curso $curso)
+    public function update(Request $request, Curso $curso)
     {
+
+        $request->validate([
+            'name' => 'required',
+            'descripcion' => 'required',
+            'categoria' => 'required',
+        ]);
+
         $curso->name = $request->name;
         $curso->description = $request->descripcion;
         $curso->categoria = $request->categoria;
 
         $curso->save();
 
-        return redirect(route('cursos.show'));
+        return redirect(route('cursos.show', $curso->id));
     }
 }
