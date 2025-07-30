@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\HomeController;
+use App\Models\Curso;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class);
@@ -12,3 +13,4 @@ Route::post('cursos', [CursoController::class, 'store'])->name('cursos.store');
 Route::get('cursos/{curso}', [CursoController::class, 'show'])->name('cursos.show');
 Route::get('cursos/{curso}/edit', [CursoController::class, 'edit'])->name('cursos.edit');
 Route::put('cursos/{curso}', [CursoController::class, 'update'])->name('cursos.update');
+Route::delete('cursos/{curso}', [CursoController::class, 'destroy'])->name('cursos.destroy');
