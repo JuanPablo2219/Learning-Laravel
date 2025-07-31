@@ -24,6 +24,17 @@
         @enderror
         <br>
 <br>
+         <label>
+            Slug:
+            <br>
+            <input type="text" name="slug" value="{{old('slug', $curso->slug)}}">
+        </label>
+        <br>
+        @error('slug')
+            * {{$message}}
+        @enderror
+        <br>
+<br>
         <label>
             Descripción
             <br>

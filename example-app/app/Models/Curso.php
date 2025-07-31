@@ -11,11 +11,15 @@ class Curso extends Model
 
     protected $fillable = [
         'name',
+        'slug',
         'descripcion',
         'categoria',
     ];
 
-    protected $hidden = [
-        
-    ];
+    protected $hidden = [];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

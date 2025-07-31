@@ -23,6 +23,7 @@ class CursoStore extends FormRequest
     {
         return [
             'name' => 'required',
+            'slug' => 'required|unique:cursos',
             'descripcion' => 'required',
             'categoria' => 'required'
         ];
